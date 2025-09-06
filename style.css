@@ -11,6 +11,7 @@ body {
   grid-template-areas:
     "header"
     "article"
+    "aside"
     "footer";
   grid-template-columns: 1fr; /* فقط یک ستون */
   grid-template-rows: auto 1fr auto;
@@ -22,18 +23,20 @@ body {
   background: #0a0a0a;
   background-image: radial-gradient(
       circle at 10% 0%,
-      rgba(110, 70, 230, 0.25) 0%,
+      rgba(255, 0, 234, 0.25) 0%,
       transparent 40%
     ),
     radial-gradient(
       circle at 70% 40%,
-      rgba(0, 180, 255, 0.25) 0%,
+      rgba(204, 0, 255, 0.25) 0%,
       transparent 40%
     ),
-    linear-gradient(135deg, #0a0a0a 0%, #111a2a 50%, #0a0a0a 100%);
+    linear-gradient(135deg, #0011ff38 0%, #111a2a 50%, #0a0a0a 100%);
   background-size: 500px 500px, 600px 600px, 100% 100%;
   background-position: 0% 0%, 0% 0%, 0% 0%;
   animation: bgMove 20s linear infinite;
+
+
 }
 
 header {
@@ -73,7 +76,7 @@ header h1::after {
 }
 
 header h1:hover {
-  color: #008dc5;
+  color: #b500c5;
 }
 header h1:hover::after {
   width: 100%;
@@ -96,13 +99,13 @@ a::after {
   position: absolute;
   width: 0%;
   height: 2px;
-  background: #008dc5;
+  background:  #b500c5;
   bottom: -4px;
   left: 0;
   transition: width 0.3s ease;
 }
 a:hover {
-  color: #008dc5;
+  color: #b500c5;
 }
 a:hover::after {
   width: 100%;
@@ -167,4 +170,47 @@ footer {
 .road-map img {
   width: 70%;
   border-radius: 20px;
+}
+
+
+/* سلکت متن - حالت شیشه‌ای (Glass-like) با رنگ سفارشی */
+
+/* استایل سلکت برای همهٔ متن‌ها */
+::selection {
+  background: #9700c5;
+  color: #0a0a0a; /* رنگ متن در حالت انتخاب */
+  text-shadow: 0 1px 0 rgba(255,255,255,0.25); /* افکت روشن برای حس شیشه‌ای */
+}
+::-moz-selection {
+  background: #008dc5;
+  color: #0a0a0a;
+  text-shadow: 0 1px 0 rgba(255,255,255,0.25);
+}
+
+aside{
+  grid-area: aside;
+
+  border-radius: 12px;
+  margin: 0 auto;
+  width: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 12px;
+  padding: 18px 20px;
+  color: #e8e8e8;
+  line-height: 1.75;
+  backdrop-filter: blur(8px) saturate(120%);
+  -webkit-backdrop-filter: blur(8px) saturate(120%);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+  background: rgba(14, 14, 14, 0.62);
+  display: flex;
+  flex-direction: column;
+}
+
+aside p{
+  background-color: #9700c5;
+  border-radius: 12px;
+}
+aside ul,li{
+  margin:10px;
+  padding-top: 10px;
 }
